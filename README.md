@@ -1,4 +1,4 @@
-# Lettering.js, a jQuery plugin for radical Web Typography
+# Lettering.js, a JavaScript file for radical Web Typography
 We developed a lightweight, easy to use Javascript `span` injector for radical Web Typography, we're calling it "Lettering Dot JS", and we're releasing it today for free over on Github. Let me demo it for you: `</stevejobs>`
 
 ## Individual Letter Control with Lettering.js
@@ -6,17 +6,14 @@ We'll start with some really basic markup:
 
 	<h1 class="fancy_title">Some Title</h1>
 
-After including jQuery, [download and include the minified version of Lettering.js](http://github.com/davatron5000/Lettering.js/downloads), then a script block with the magical `.lettering()` method:
+Place at the bottom of the document, just before closing body tag
 	
-	<script src="path/to/jquery-1.4.2.min.js"></script>
-	<script src="path/to/jquery.lettering.min.js"></script>
+	<script src="path/to/lettering.min.js"></script>
 	<script>
-	$(document).ready(function() {
-	  $(".fancy_title").lettering();
-	});
+	lettering.splitter(document.getElementsByTagName("h1")[0]);
 	</script>
 	
-The resulting code will churn your `.fancy_title` and output the following:
+The resulting code will churn your `h1` and output the following:
 
 	<h1 class="fancy_title">
 	  <span class="char1">S</span>
@@ -42,14 +39,12 @@ It also plays nicely with CMSs like WordPress or Expression Engine and art direc
 ## Wrap Words with Lettering.js
 Once we developed this e-solution and played with it, we found it useful enough to broaden the scope so that we could break apart and wrap words in a sentence in a span tag.
 
-Here's an example of the `.lettering('words')` method:
+Here's an example of the word wrapping` method:
 
 	<p class="word_split">Don't break my heart.</p>
 
 	<script>
-	$(document).ready(function() {
-	  $(".word_split").lettering('words');
-	});
+	lettering.splitter(document.getElementsByTagName("p")[0],"words");
 	</script>
 
 Which will generate:
@@ -69,9 +64,7 @@ Once word wrapping was complete, we noticed the need for yet another method, one
 	<p class="line_split">Are you<br/> ready to<br/> RUMmMmMMBBLE!</p>
 
 	<script>
-	$(document).ready(function() {
-	  $(".line_split").lettering('lines');
-	});
+	lettering.splitter(document.getElementsByTagName("p")[0],"lines");
 	</script>
 
 Resulting code:
@@ -91,13 +84,13 @@ We've found this to be a pretty quick and elegant solution to create typographic
 Be smart and use sparingly. You'll probably break your browser if you try to tried to do wrap every letter on your page in a `span` tag, so don't do that.  Look to use this in your Headings, Blockquotes, Asides, etc.
 
 ### Kern Well
-If you're going through the trouble to load a fancy font and that word or phrase is the largest on the site, then it's important for it to be kerned well.  With Lettering.js, kerning is a breeze. You can simply use `$("#id-of-what-i-want-to-kern").lettering();` and then on each `.char#`, you can set relative position or left/right margin. Works like a charm.
+If you're going through the trouble to load a fancy font and that word or phrase is the largest on the site, then it's important for it to be kerned well.  With Lettering.js, kerning is a breeze. You can simply use `lettering.splitter(document.getElementById("id-of-what-i-want-to-kern"));` and then on each `.char#`, you can set relative position or left/right margin. Works like a charm.
 
 ### Non-Javascript Fallback
 As with any kind of Javascript, have a fall back plan in case the user doesn't have javascript enabled.  The bottom line is up to you, my bottom line would be "legible and on the screen". Also, use `lettering.min.js` [Download the Minified Version of Lettering.js here](http://github.com/davatron5000/Lettering.js/downloads)
 
-### Performance Anti-Pattern
-Web performance patterns advise that you put Javascripts at the bottom of your page before your `</body>` tag.  There is an unfortunate side effect where you may experiences a [FOUT (Flash of Unstyled Text)](http://paulirish.com/2009/fighting-the-font-face-fout/) when you're manipulating your text after the DOM has loaded.  Unfortunately, we found the best solution to avoid/minimize the FOUT caused by this plugin is to put your scripts (jQuery, Lettering.js) in the document `<head>`. On the one hand, your page will load slower. On the other hand, a flash/restyling makes your site feel slow. Users might ultimately feel the site is faster if they don't see the FOUT.
+### No FOUT!
+Placing lettering.min.js just before the closing body tag and calling the methods below the script reference removes the need for waiting on the document to load and the FOUT.
 
 ## Download, Fork, Commit, Please.
 We really want Lettering.js to be a quality helper for web typography.  If you have any feedback or suggestions, please leave those over on the Github.  We're excited about typography on the web and want to help make it print quality.
