@@ -87,7 +87,7 @@ Be smart and use sparingly. You'll probably break your browser if you try to tri
 If you're going through the trouble to load a fancy font and that word or phrase is the largest on the site, then it's important for it to be kerned well.  With Lettering.js, kerning is a breeze. You can simply use `lettering.splitter(document.getElementById("id-of-what-i-want-to-kern"));` and then on each `.char#`, you can set relative position or left/right margin. Works like a charm.
 
 ### Non-Javascript Fallback
-As with any kind of Javascript, have a fall back plan in case the user doesn't have javascript enabled.  The bottom line is up to you, my bottom line would be "legible and on the screen". Also, use `lettering.min.js` [Download the Minified Version of Lettering.js here](http://github.com/davatron5000/Lettering.js/downloads)
+As with any kind of Javascript, have a fall back plan in case the user doesn't have javascript enabled.  The bottom line is up to you, my bottom line would be "legible and on the screen". Also, use `lettering.min.js` [Download the Minified Version of Lettering.js here](http://github.com/ryanseddon/Lettering.js/downloads)
 
 ### No FOUT!
 Placing lettering.min.js just before the closing body tag and calling the methods below the script reference removes the need for waiting on the document to load and the FOUT.
