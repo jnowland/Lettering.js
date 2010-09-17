@@ -90,7 +90,7 @@ If you're going through the trouble to load a fancy font and that word or phrase
 As with any kind of Javascript, have a fall back plan in case the user doesn't have javascript enabled.  The bottom line is up to you, my bottom line would be "legible and on the screen". Also, use `lettering.min.js` [Download the Minified Version of Lettering.js here](http://github.com/ryanseddon/Lettering.js/downloads)
 
 ### No FOUT!
-Placing lettering.min.js just before the closing body tag and calling the methods below the script reference removes the need for waiting on the document to load and the FOUT.
+Placing lettering.min.js just before the closing body tag and calling the methods below the script reference removes the need for waiting on the document to load and the FOUT. [View a live demo.](http://labs.thecssninja.com/lettering/)
 
 ## Download, Fork, Commit, Please.
 We really want Lettering.js to be a quality helper for web typography.  If you have any feedback or suggestions, please leave those over on the Github.  We're excited about typography on the web and want to help make it print quality.
