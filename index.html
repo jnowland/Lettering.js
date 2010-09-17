@@ -1,88 +1,140 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!doctype html>  
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --> 
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>ryanseddon/Lettering.js @ GitHub</title>
+  <title>Lettering.js Examples</title>
+  <meta name="description" content="A jQuery Plugin that allows you to style each individual letter and more.">
+  <meta name="author" content="Dave Rupert">
+
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen"></link>
 	
-	<style type="text/css">
-		body {
-  		margin-top: 1.0em;
-  		background-color: #ffffff;
-		  font-family: "Helvetica,Arial,FreeSans";
-  		color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-		h1 { font-size: 3.8em; color: #000000; margin-bottom: 3px; }
-		h1 .small { font-size: 0.4em; }
-		h1 a { text-decoration: none }
-		h2 { font-size: 1.5em; color: #000000; }
-    h3 { text-align: center; color: #000000; }
-    a { color: #000000; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-		pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
+	<style type="text/css" media="screen">
+		.demo {
+			padding: 50px;
+			border:1px solid #ccc;
+			font-weight:bold;
+			color: red;
+			background:#d0d0d0;
+			font-size:20px;
+			line-height:1.5;
+			text-align:center;
+		}
+	
+		.demo h1 { font-size:72px;  text-transform:uppercase; margin-bottom:0px;}
+		.char2,
+		#demo2 .word2,
+		.line2 { color: orange; }
+		.char3,
+		.word3,
+		.line3 { color: yellow; }
+		.char4,
+		.line4 { color: blue; }
+		.char5 { color: green; }
+		.char6 { color: indigo; }
+		.char7 { color: violet; }
+		
+		.odd { text-shadow: 1px 1px 3px #000, -1px -1px 3px #ccc; }
+		
+		#demo2 .even {
+			-moz-transform: rotate(7.5deg);  
+			-o-transform: rotate(7.5deg);  
+			-webkit-transform: rotate(7.5deg);  
+			transform: rotate(7.5deg); 
+			display: inline-block;
+		}
+		#demo2 .odd { 
+			-moz-transform: rotate(-7.5deg);  
+			-o-transform: rotate(-7.5deg);  
+			-webkit-transform: rotate(-7.5deg);  
+			transform: rotate(-7.5deg); 
+			display: inline-block;
+		}
 	</style>
-	
+
 </head>
 
 <body>
-  <a href="http://github.com/ryanseddon/Lettering.js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
   <div id="container">
+    <header>
+			<h1 id="thebrand">Lettering.JS</h1>
+			<p>The following are some hokey examples of how you can implement LETTERING.JS.
+    </header>
+    
+    <article id="main">
+			<section id='lettering-demo'>
+				<h2>Letters</h2>
+				<h4>The HTML</h4>
+<pre><code>&lt;div id=&quot;demo1&quot; class=&quot;demo&quot;&gt;
+&nbsp;&nbsp;&lt;h1&gt;Rainbow&lt;/h1&gt;
+&lt;/div&gt;
+</code></pre>
 
-    <div class="download">
-      <a href="http://github.com/ryanseddon/Lettering.js/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/ryanseddon/Lettering.js/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
+<h4>The JavaScript</h4>
+<pre><code>window.onload = function() {
+&nbsp;&nbsp;lettering.splitter(document.getElementById("demo1").getElementsByTagName("h1")[0]);
+}
+</code></pre>
 
-    <h1><a href="http://github.com/ryanseddon/Lettering.js">Lettering.js</a>
-      <span class="small">by <a href="http://github.com/ryanseddon">ryanseddon</a></span></h1>
+				<h4>The Result</h4>
+				<div id="demo1" class="demo">
+					<h1>Rainbow</h1>
+				</div>
+				
+			</section>
 
-    <div class="description">
-      An actual lightweight, easy to use Javascript <span> injector for radical Web Typography that doesn't rely on any external libraries
-    </div>
+			<section id='words-demo'>
+				<h2>Words</h2>
+				<code><pre>lettering.splitter(document.getElementById("demo2").getElementsByTagName("h1")[0],"words");</pre></code>
 
-    <h2>Authors</h2>
-<p>Ryan Seddon (ryan@thecssninja.com)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>Ryan Seddon (ryan@thecssninja.com)<br/>      </p>
+			<h4>The Result</h4>
+				<div id="demo2" class="demo">
+					<h1>Hi, Multi Color</h1>
+				</div>
+			</section>
 
+			<section id='lines-demo'>
+				<h2>Lines</h2>
+				<code><pre>lettering.splitter(document.getElementById("demo3").getElementsByTagName("p")[0],"lines");</pre></code>
 
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/ryanseddon/Lettering.js/zipball/master">zip</a> or
-      <a href="http://github.com/ryanseddon/Lettering.js/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/ryanseddon/Lettering.js</pre>
-    </p>
+			<h4>The Result</h4>
+				<div id="demo3" class="demo">
+					<p>This is an amazing<br/> Revolution in Typography. <br/> The possibilities are endless: <br/> Coloring, Vertical spacing, and Kerning.</p>
+				</div>
+			</section>
 
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/ryanseddon/Lettering.js">ryanseddon/Lettering.js</a>
-    </div>
+    </article>
+    
+    <footer>
+			<p>&copy;2010 Dave Rupert <a href="http://daverupert.com">http://daverupert.com</a>, bloat removed by Ryan Seddon <a href="http://www.thecssninja.com">http://www.thecssninja.com</a>
+    </footer>
+  </div> 
 
-  </div>
-
-  <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  <script src="lettering.min.js"></script>
+  <script>
+  	lettering.splitter(document.getElementById("demo1").getElementsByTagName("h1")[0]);
+	lettering.splitter(document.getElementById("demo2").getElementsByTagName("h1")[0],"words");
+	lettering.splitter(document.getElementById("demo3").getElementsByTagName("p")[0],"lines");
+  </script>
+  
+  <!-- Google analytics -->
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-4638292-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
+	var pageTracker = _gat._getTracker("UA-4638292-1");
+	pageTracker._initData();
+	pageTracker._trackPageview();
+</script>
+  
 </body>
 </html>
