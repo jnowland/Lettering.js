@@ -40,6 +40,23 @@
 		.char5 { color: green; }
 		.char6 { color: indigo; }
 		.char7 { color: violet; }
+		
+		.odd { text-shadow: 1px 1px 3px #000, -1px -1px 3px #ccc; }
+		
+		#demo2 .even {
+			-moz-transform: rotate(7.5deg);  
+			-o-transform: rotate(7.5deg);  
+			-webkit-transform: rotate(7.5deg);  
+			transform: rotate(7.5deg); 
+			display: inline-block;
+		}
+		#demo2 .odd { 
+			-moz-transform: rotate(-7.5deg);  
+			-o-transform: rotate(-7.5deg);  
+			-webkit-transform: rotate(-7.5deg);  
+			transform: rotate(-7.5deg); 
+			display: inline-block;
+		}
 	</style>
 
 </head>
@@ -107,6 +124,17 @@
 	lettering.splitter(document.getElementById("demo2").getElementsByTagName("h1")[0],"words");
 	lettering.splitter(document.getElementById("demo3").getElementsByTagName("p")[0],"lines");
   </script>
+  
+  <!-- Google analytics -->
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+	var pageTracker = _gat._getTracker("UA-4638292-1");
+	pageTracker._initData();
+	pageTracker._trackPageview();
+</script>
   
 </body>
 </html>
